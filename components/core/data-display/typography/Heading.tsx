@@ -1,10 +1,10 @@
 import { Oswald } from "@/app/connectFonts";
 import { colorStyles } from "@/utils/styles/colors";
-import React from "react";
+import React, { forwardRef } from "react";
 import { TextProps } from "./Text";
 import { HeadingVariantsType } from "@/utils/types/typogtaphy";
 
-export interface HeadingProps extends Omit<TextProps, 'variant'> {
+export interface HeadingProps extends Omit<Omit<TextProps, 'variant'>, 'style'>, React.HTMLAttributes<HTMLHeadingElement> {
   variant?: HeadingVariantsType;
   order?: HeadingVariantsType;
 }
@@ -42,17 +42,29 @@ const textStyles = {
   },
 };
 
-function Heading({ variant = 'h1', order = 'h1', color = colorStyles['dark'].text.primary.default, children }: HeadingProps) {
+const Heading = forwardRef<HTMLElement, HeadingProps>(({
+  variant = 'h1',
+  order = 'h1',
+  color = colorStyles['dark'].text.primary.default,
+  children,
+  className,
+  style, // Capture incoming style prop from MUI/DialogTitle
+  ...rest
+}, ref) => {
   return React.createElement(
     order,
     {
+      ref,
+      ...rest,
+      className: className,
       style: {
         ...textStyles[variant],
         color,
+        ...style,
       },
     },
-    children
+    children,
   );
-}
+});
 
-export { Heading }
+export { Heading };

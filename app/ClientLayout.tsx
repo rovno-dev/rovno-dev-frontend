@@ -1,6 +1,6 @@
 "use client"
 
-import BottomAppBar from "@/components/BottomAppBar";
+import BottomAppBar from "@/components/BottomAppBar/BottomAppBar";
 import Header from "@/components/Header";
 import { useEffect, useRef, useState } from "react";
 

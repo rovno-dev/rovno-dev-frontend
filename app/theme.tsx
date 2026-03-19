@@ -5,6 +5,15 @@ import { NotoSans } from "./connectFonts";
 import { COLORS, colorStyles } from "@/utils/styles/colors";
 
 export const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
   palette: {
     primary: {
       main: COLORS.brand[9],
