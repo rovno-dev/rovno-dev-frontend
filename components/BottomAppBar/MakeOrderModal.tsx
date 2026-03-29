@@ -2,7 +2,7 @@
 
 import { colorStyles } from "@/utils/styles/colors";
 import { DialogContent, SnackbarCloseReason, useMediaQuery, useTheme } from "@mui/material";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import { Dialog, DialogTitle, RDDialogProps } from "../core/data-display/Dialog";
 import MakeOrderModalVideo from "./MakeOrderModalVideo";
 
@@ -13,9 +13,25 @@ export interface MakeOrderModalProps extends RDDialogProps {
 export default function MakeOrderModal({ ...props }: MakeOrderModalProps) {
 
   const [open, setOpen] = useState(false);
-
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin.includes("forms.yandex.ru")) {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
 
   const handleClose = (
     event: React.SyntheticEvent | Event,
@@ -54,7 +70,7 @@ export default function MakeOrderModal({ ...props }: MakeOrderModalProps) {
       >
         <DialogContent>
           <div className="grid grid-cols-[1fr] lg:grid-cols-[500px_1fr] xl:grid-cols-[800px_1fr] gap-x-[1rem] h-full">
-            <div className="pr-0 h-full flex flex-col min-h-0">
+            <div className="pr-0 flex flex-col min-h-0">
               <DialogTitle
                 style={{
                   marginBottom: "calc(1.5rem - 6px)"
@@ -64,11 +80,12 @@ export default function MakeOrderModal({ ...props }: MakeOrderModalProps) {
                 Оформить заказ
               </DialogTitle>
               <div
+                ref={scrollContainerRef}
                 style={{
-                  // flex: 1,
-                  minHeight: 0,
+                  //flex: 1,
+                  height: 'auto',
                   overflowY: 'auto',
-                  paddingBottom: '3rem',
+                  paddingBottom: '1rem',
                 }}
                 className="
                 !pl-[0.25rem] sm:!pl-[calc(2.25rem-12px)] 
@@ -80,7 +97,7 @@ export default function MakeOrderModal({ ...props }: MakeOrderModalProps) {
                   src="https://forms.yandex.ru/cloud/6936a4b1d0468820623c548e?iframe=1"
                   name="ya-form-6936a4b1d0468820623c548e"
                   style={{ width: '100%', border: 'none', borderRadius: '16px', overflow: 'hidden' }}
-                  className="h-[1600px] md:h-[1500px] lg:h-[1550px]  overflow-x-hidden "
+                  className="md:h-[1500px] lg:h-[1550px]  overflow-x-hidden "
                 />
               </div>
             </div>

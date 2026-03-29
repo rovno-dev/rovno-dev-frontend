@@ -4,13 +4,14 @@ import { ROUTES } from "@/utils/constants/routes";
 import Link from "next/link";
 import CheckIcon from '@mui/icons-material/Check';
 import { TextLink } from "../core/data-display/typography/TextLink";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import z from "zod";
 import { colorStyles } from "@/utils/styles/colors";
 
 export default function MakeOrderForm() {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+  const topRef = useRef<HTMLDivElement>(null);
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -98,6 +99,7 @@ export default function MakeOrderForm() {
       });
 
       setErrors(fieldErrors);
+      topRef.current?.scrollIntoView({ behavior: 'smooth' }); 
       return;
     }
 
@@ -138,6 +140,7 @@ export default function MakeOrderForm() {
 
   return (
     <>
+    <div ref={topRef} />
       <div className="flex flex-col gap-[1.5rem]">
         <div className="flex flex-col gap-[0.75rem]">
           <TextField
@@ -254,9 +257,9 @@ export default function MakeOrderForm() {
       <Button
         sx={{
           marginTop: '2.5rem',
-          position: "sticky",
+          /* position: "sticky",
           bottom: "20px",
-          left: 0,
+          left: 0, */
         }}
         size="large"
         fullWidth
