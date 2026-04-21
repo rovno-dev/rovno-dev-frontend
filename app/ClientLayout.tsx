@@ -31,6 +31,7 @@ export default function ClientLayout({
           position: 'fixed',
           top: 0,
           left: 0,
+          zIndex: 9999,
         }}
       >
         <Header />
@@ -39,6 +40,8 @@ export default function ClientLayout({
         style={{
           marginTop: headerHeight,
           width: "100%",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {children}
