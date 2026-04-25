@@ -4,6 +4,10 @@
   "private": false,
   "author": "Niyaz Gimadiev niyazgim@gmail.com (https://rovno.dev/u/niyazgim)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rovno-dev/rovno-dev-frontend"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
