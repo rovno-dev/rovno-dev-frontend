@@ -1,5 +1,254 @@
+@import url('./unideka-base.css');
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: dark;
+  --primary: var(--brand-9);
+  --on-primary: var(--white);
+  --primary-card: var(--brand-0);
+  --on-primary-card: var(--gray-9);
+
+  --outline: var(--gray-3);
+  --bg: var(--gray-0);
+  --bg-disabled: var(--gray-3);
+  --on-bg-disabled: var(--gray-6);
+  --card: var(--white);
+
+  --on-bg-high: var(--gray-9);
+  --on-bg-medium: var(--gray-7);
+  --on-bg-low: var(--gray-6);
+
+  --error: var(--red-9);
+  --on-error: var(--white);
+  --error-card: var(--red-1);
+  --on-error-card: var(--red-7);
+
+  --success: var(--green-7);
+  --on-success: var(--white);
+  --success-card: var(--green-1);
+  --on-success-card: var(--green-7);
+
+  --warning: var(--orange-9);
+  --on-warning: var(--white);
+  --warning-card: var(--orange-0);
+  --on-warning-card: var(--orange-7);
+
+  /* glass styles */
+  --primary-glass: color-mix(in srgb, var(--brand-9), transparent 95%);
+  --on-primary-glass: var(--brand-9);
+  --card-glass: color-mix(in srgb, var(--white), transparent 95%);
+  --outline-primary-glass: conic-gradient(from 180deg at 50% 50%,
+      var(--brand-9) 0%,
+      color-mix(in srgb, var(--brand-9), transparent 80%) 25%,
+      var(--brand-9) 50%,
+      color-mix(in srgb, var(--brand-9), transparent 80%) 75%,
+      var(--brand-9) 100%);
+  --outline-glass: conic-gradient(from 180deg at 50% 50%,
+      var(--dark-4) 0%,
+      color-mix(in srgb, var(--dark-4), transparent 80%) 25%,
+      var(--dark-4) 50%,
+      color-mix(in srgb, var(--dark-4), transparent 80%) 75%,
+      var(--dark-4) 100%);
+
+  --state-hover: color-mix(in srgb, #121212, transparent 95%);
+  --state-focus: color-mix(in srgb, #121212, transparent 92%);
+  --state-focus: color-mix(in srgb, #121212, transparent 77%);
+
+  /* Universal for light and dark themes */
+  --g-light: linear-gradient(to right,
+      var(--white) 0%,
+      color-mix(in srgb, var(--white), transparent 100%) 0%);
+  --on-g-light: var(--gray-9);
+  --g-dark: linear-gradient(to right,
+      var(--dark-4) 0%,
+      color-mix(in srgb, var(--dark-4), transparent 100%) 0%);
+  --on-g-dark: var(--white);
+}
+
+@theme inline {
+  --text-display-1: var(--text-display-1);
+  --text-display-2: var(--text-display-2);
+  --text-display-3: var(--text-display-3);
+  --text-display-4: var(--text-display-4);
+  --text-display-5: var(--text-display-5);
+  --text-display-6: var(--text-display-6);
+
+  --text-body-1: var(--text-body-1);
+  --text-body-2: var(--text-body-2);
+  --text-body-3: var(--text-body-3);
+  --text-body-4: var(--text-body-4);
+  --text-body-5: var(--text-body-5);
+  --text-body-6: var(--text-body-6);
+
+  --text-heading-1: var(--text-heading-1);
+  --text-heading-2: var(--text-heading-2);
+  --text-heading-3: var(--text-heading-3);
+  --text-heading-4: var(--text-heading-4);
+  --text-heading-5: var(--text-heading-5);
+  --text-heading-6: var(--text-heading-6);
+
+  --font-heading: var(--font-heading);
+  --font-sans: var(--font-sans);
+
+  --color-sidebar-ring: var(--yellow-10);
+  --color-sidebar-border: var(--outline);
+  --color-sidebar-accent-foreground: var(--pink-10);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--green-10);
+  --color-sidebar: var(--card);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--primary);
+  --color-input: var(--input);
+  --color-border: var(--outline);
+
+  --color-destructive: var(--error);
+
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+
+  --color-muted-foreground: var(--on-bg-disabled);
+  --color-muted: var(--bg-disabled);
+
+  --color-secondary-foreground: var(--on-primary-card);
+  --color-secondary: var(--primary-card);
+  --color-primary-foreground: var(--on-primary);
+  --color-primary: var(--primary);
+
+  --color-popover-foreground: var(--on-card);
+  --color-popover: var(--card);
+  --color-card-foreground: var(--on-card);
+  --color-card: var(--card);
+  --color-foreground: var(--on-bg-high);
+  --color-background: var(--bg);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --primary: var(--brand-7);
+  --on-primary: var(--white);
+  --primary-card: var(--brand-3);
+  --on-primary-card: var(--dark-9);
+
+  --outline: var(--dark-6);
+  --bg: var(--dark-8);
+  --bg-disabled: var(--gray-9);
+  --on-bg-disabled: var(--gray-7);
+  --card: var(--dark-9);
+
+  --on-bg-high: var(--white);
+  --on-bg-medium: var(--dark-1);
+  --on-bg-low: var(--dark-2);
+
+  --error: var(--red-9);
+  --on-error: var(--white);
+  --error-card: var(--red-2);
+  --on-error-card: var(--red-8);
+
+  --success: var(--green-9);
+  --on-success: var(--white);
+  --success-card: var(--green-1);
+  --on-success-card: var(--green-7);
+
+  --warning: var(--orange-9);
+  --on-warning: var(--white);
+  --warning-card: var(--orange-0);
+  --on-warning-card: var(--orange-9);
+
+  --primary-glass: color-mix(in srgb, var(--brand-9), transparent 95%);
+  --on-primary-glass: var(--brand-9);
+  --card-glass: color-mix(in srgb, var(--white), transparent 95%);
+  --outline-primary-glass: conic-gradient(from 180deg at 50% 50%,
+      var(--brand-9) 0%,
+      color-mix(in srgb, var(--brand-9), transparent 80%) 25%,
+      var(--brand-9) 50%,
+      color-mix(in srgb, var(--brand-9), transparent 80%) 75%,
+      var(--brand-9) 100%);
+  --outline-glass: conic-gradient(from 180deg at 50% 50%,
+      var(--dark-4) 0%,
+      color-mix(in srgb, var(--dark-4), transparent 80%) 25%,
+      var(--dark-4) 50%,
+      color-mix(in srgb, var(--dark-4), transparent 80%) 75%,
+      var(--dark-4) 100%);
+
+  --state-hover: color-mix(in srgb, #fff, transparent 95%);
+  --state-focus: color-mix(in srgb, #fff, transparent 92%);
+  --state-focus: color-mix(in srgb, #fff, transparent 77%);
+}
+
+/* --background: oklch(0.145 0 0);
+--foreground: oklch(0.985 0 0);
+--card: oklch(0.205 0 0);
+--card-foreground: oklch(0.985 0 0);
+--popover: oklch(0.205 0 0);
+--popover-foreground: oklch(0.985 0 0);
+--primary: oklch(0.922 0 0);
+--primary-foreground: oklch(0.205 0 0);
+--secondary: oklch(0.269 0 0);
+--secondary-foreground: oklch(0.985 0 0);
+--muted: oklch(0.269 0 0);
+--muted-foreground: oklch(0.708 0 0);
+--accent: oklch(0.269 0 0);
+--accent-foreground: oklch(0.985 0 0);
+--destructive: oklch(0.704 0.191 22.216);
+--border: oklch(1 0 0 / 10%);
+--input: oklch(1 0 0 / 15%);
+--ring: oklch(0.556 0 0);
+--chart-1: oklch(0.87 0 0);
+--chart-2: oklch(0.556 0 0);
+--chart-3: oklch(0.439 0 0);
+--chart-4: oklch(0.371 0 0);
+--chart-5: oklch(0.269 0 0);
+--sidebar: oklch(0.205 0 0);
+--sidebar-foreground: oklch(0.985 0 0);
+--sidebar-primary: oklch(0.488 0.243 264.376);
+--sidebar-primary-foreground: oklch(0.985 0 0);
+--sidebar-accent: oklch(0.269 0 0);
+--sidebar-accent-foreground: oklch(0.985 0 0);
+--sidebar-border: oklch(1 0 0 / 10%);
+--sidebar-ring: oklch(0.556 0 0); */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .state-layer {
+    @apply relative transition-all;
+  }
+
+  .state-layer:hover {
+    box-shadow: inset 0 0 0 999px var(--state-hover);
+  }
+
+  .state-layer:active {
+    box-shadow: inset 0 0 0 999px var(--state-active);
+  }
 }

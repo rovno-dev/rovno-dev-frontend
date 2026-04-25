@@ -1,10 +1,3 @@
-import DomainOutlinedIcon from '@mui/icons-material/DomainOutlined';
-import DomainIcon from '@mui/icons-material/Domain';
-import SourceOutlinedIcon from '@mui/icons-material/SourceOutlined';
-import SourceIcon from '@mui/icons-material/Source';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import HomeIcon from '@mui/icons-material/Home';
-
 export const ROUTES = {
   home: {
     href: "/",
