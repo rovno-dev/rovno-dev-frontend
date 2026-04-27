@@ -37,21 +37,21 @@
   --on-warning-card: var(--orange-7);
 
   /* glass styles */
-  --primary-glass: color-mix(in srgb, var(--brand-9), transparent 95%);
-  --on-primary-glass: var(--brand-9);
-  --card-glass: color-mix(in srgb, var(--white), transparent 95%);
+  --primary-glass: color-mix(in srgb, var(--primary), transparent 95%);
+  --on-primary-glass: var(--primary);
+  --card-glass: color-mix(in srgb, var(--card), transparent 95%);
   --outline-primary-glass: conic-gradient(from 180deg at 50% 50%,
-      var(--brand-9) 0%,
-      color-mix(in srgb, var(--brand-9), transparent 80%) 25%,
-      var(--brand-9) 50%,
-      color-mix(in srgb, var(--brand-9), transparent 80%) 75%,
-      var(--brand-9) 100%);
+      var(--primary) 0%,
+      color-mix(in srgb, var(--primary), transparent 80%) 25%,
+      var(--primary) 50%,
+      color-mix(in srgb, var(--primary), transparent 80%) 75%,
+      var(--primary) 100%);
   --outline-glass: conic-gradient(from 180deg at 50% 50%,
-      var(--dark-4) 0%,
-      color-mix(in srgb, var(--dark-4), transparent 80%) 25%,
-      var(--dark-4) 50%,
-      color-mix(in srgb, var(--dark-4), transparent 80%) 75%,
-      var(--dark-4) 100%);
+      var(--outline) 0%,
+      color-mix(in srgb, var(--outline), transparent 80%) 25%,
+      var(--outline) 50%,
+      color-mix(in srgb, var(--outline), transparent 80%) 75%,
+      var(--outline) 100%);
 
   --state-hover: color-mix(in srgb, #121212, transparent 95%);
   --state-focus: color-mix(in srgb, #121212, transparent 92%);
@@ -93,6 +93,8 @@
   --font-heading: var(--font-heading);
   --font-sans: var(--font-sans);
 
+  --color-background: var(--bg);
+
   --color-sidebar-ring: var(--yellow-10);
   --color-sidebar-border: var(--outline);
   --color-sidebar-accent-foreground: var(--pink-10);
@@ -132,13 +134,20 @@
   --color-foreground: var(--on-bg-high);
   --color-background: var(--bg);
 
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-sm: var(--radius-1);
+  --radius-lg: var(--radius-2);
+  --radius-xl: var(--radius-3);
+  --radius-2xl: var(--radius-4);
+  --radius-3xl: var(--radius-5);
+  --radius-4xl: var(--radius-6);
+  --radius-5xl: var(--radius-7);
+  --radius-6xl: var(--radius-8);
+  --radius-7xl: var(--radius-9);
+  --radius-8xl: var(--radius-10);
+
+  /* effects */
+  --blur-glass: 10px;
+  --shadow-card: 0 1px 6px 0 rgb(0 0 0 / 0.05);
 }
 
 .dark {
@@ -172,21 +181,21 @@
   --warning-card: var(--orange-0);
   --on-warning-card: var(--orange-9);
 
-  --primary-glass: color-mix(in srgb, var(--brand-9), transparent 95%);
-  --on-primary-glass: var(--brand-9);
-  --card-glass: color-mix(in srgb, var(--white), transparent 95%);
+  --primary-glass: color-mix(in srgb, var(--primary), transparent 95%);
+  --on-primary-glass: var(--primary);
+  --card-glass: color-mix(in srgb, var(--card), transparent 95%);
   --outline-primary-glass: conic-gradient(from 180deg at 50% 50%,
-      var(--brand-9) 0%,
-      color-mix(in srgb, var(--brand-9), transparent 80%) 25%,
-      var(--brand-9) 50%,
-      color-mix(in srgb, var(--brand-9), transparent 80%) 75%,
-      var(--brand-9) 100%);
+      var(--primary) 0%,
+      color-mix(in srgb, var(--primary), transparent 80%) 25%,
+      var(--primary) 50%,
+      color-mix(in srgb, var(--primary), transparent 80%) 75%,
+      var(--primary) 100%);
   --outline-glass: conic-gradient(from 180deg at 50% 50%,
-      var(--dark-4) 0%,
-      color-mix(in srgb, var(--dark-4), transparent 80%) 25%,
-      var(--dark-4) 50%,
-      color-mix(in srgb, var(--dark-4), transparent 80%) 75%,
-      var(--dark-4) 100%);
+      var(--outline) 0%,
+      color-mix(in srgb, var(--outline), transparent 80%) 25%,
+      var(--outline) 50%,
+      color-mix(in srgb, var(--outline), transparent 80%) 75%,
+      var(--outline) 100%);
 
   --state-hover: color-mix(in srgb, #fff, transparent 95%);
   --state-focus: color-mix(in srgb, #fff, transparent 92%);

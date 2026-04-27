@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils";
 import localFont from 'next/font/local'
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/providers/theme-provider";
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 
 export const NotoSans = localFont({
   src: '../public/fonts/NotoSans.woff2',
@@ -53,7 +53,7 @@ export default function RootLayout({
         <ThemeProvider>
           <TooltipProvider>
             <Header />
-            <main>
+            <main className="mt-[46px] md:mt-[70px]">
               {children}
             </main>
             <Footer />

@@ -1,4 +1,7 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { StyledText } from "@/components/ui/styled-text";
 
 export default function ServicesSection() {
   const tags = [
@@ -40,58 +43,48 @@ export default function ServicesSection() {
   ];
 
   return (
-    <Container variant="full-width" className="py-20 md:py-32" style={{ position: 'relative', zIndex: 1 }}>
-      <div
-        style={{ maxWidth: '1200px' }}
-        className="mx-auto flex flex-col lg:flex-row justify-between items-start gap-10"
-      >
+    <Container className="items-center grid grid-cols-1 md:grid-cols-[500px_1fr] gap-[40px] py-16 sm:h-[450px]">
+      <div>
+        <StyledText as={'h2'} variant="display-2">
+          Дизайн любого уровня <br /> сложности
+        </StyledText>
 
-        <div className="w-full lg:max-w-[420px] space-y-6 md:space-y-10">
-          <h2>
-            Дизайн любого уровня <br /> сложности
-          </h2>
-
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <div
-                key={tag.label}
-                className="bg-[#141414] border border-white/5 px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 cursor-default group/tag hover:border-[#4A77FF] hover:bg-[#4A77FF]/5"
-              >
-                <span className="text-[13px] text-gray-400 group-hover/tag:text-white transition-colors">{tag.label}</span>
-                <span className="text-[10px] text-gray-600 font-mono group-hover/tag:text-[#4A77FF] transition-colors">{tag.count}</span>
-              </div>
-            ))}
-          </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag, key) => (
+            <Button
+              key={key}
+            >
+              <span className="text-[13px] text-gray-400 group-hover/tag:text-white transition-colors">{tag.label}</span>
+              <Badge>{tag.count}</Badge>
+            </Button>
+          ))}
         </div>
+      </div>
 
-        <div style={{ width: '100%', maxWidth: '740px' }}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-[10px] md:gap-[14px]">
-            {services.map((item) => (
-              <div
-                key={item.id}
-                className="relative w-full h-[150px] md:h-[322px] bg-[#141414] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col items-center justify-center text-center 
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:w-full">
+        {services.map((item) => (
+          <div
+            key={item.id}
+            className="relative w-full h-[150px] md:h-[322px] bg-(--card) rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 flex flex-col items-center justify-center text-center 
                    border border-white/5 transition-all duration-300 group cursor-pointer
                    hover:bg-[#161616] hover:border-[#4A77FF] hover:shadow-[0_0_25px_rgba(74,119,255,0.15)]"
-              >
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 text-[10px] font-mono w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300
+          >
+            <div className="absolute top-4 right-4 md:top-6 md:right-6 text-[10px] font-mono w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300
                         text-[#4A77FF] bg-[#4A77FF]/10 
                         group-hover:bg-[#4A77FF] group-hover:text-white">
-                  {item.id}
-                </div>
+              {item.id}
+            </div>
 
-                <div className="mb-3 md:mb-8 transition-all duration-500 text-[#555] group-hover:text-[#4A77FF] scale-75 md:scale-100">
-                  {item.icon}
-                </div>
+            <div className="mb-3 md:mb-8 transition-all duration-500 text-[#555] group-hover:text-[#4A77FF] scale-75 md:scale-100">
+              {item.icon}
+            </div>
 
-                <p className="text-[14px] md:text-[15px] font-medium leading-snug px-2 transition-colors duration-300
+            <p className="text-[14px] md:text-[15px] font-medium leading-snug px-2 transition-colors duration-300
                       text-gray-400 group-hover:text-white">
-                  {item.title}
-                </p>
-              </div>
-            ))}
+              {item.title}
+            </p>
           </div>
-        </div>
-
+        ))}
       </div>
     </Container>
   );
