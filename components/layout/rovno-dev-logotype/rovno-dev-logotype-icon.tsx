@@ -1,14 +1,12 @@
 import { IconProps } from "@/utils/interfaces";
 
 
-export default function RovnoLogotypeIcon({ width = 62, height = 62, style }: IconProps) {
+export default function RovnoLogotypeIcon({ width = 26, height = 26, style, className }: IconProps) {
   return (
-    <svg style={style} width={width} height={height} viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M62 0H0V62H62V0Z" className="fill-accent" />
-      <path d="M36.1611 49.7383V48.3944H38.7723V15.1029H36.1611V13.7383H40.1611V49.7383H36.1611Z"
-        className="fill-accent" />
-      <path d="M25.3975 49.7383V48.3944H22.7863V15.1029H25.3975V13.7383H21.3975V49.7383H25.3975Z"
-        className="fill-accent" />
+    <svg className={className} style={style} width={width} height={height} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M26 0H0V26H26V0Z" fill="var(--on-bg-high)" />
+      <path d="M15.1643 20.8585V20.2949H16.2593V6.33398H15.1643V5.76172H16.8418V20.8585H15.1643Z" fill="var(--bg)" />
+      <path d="M10.6505 20.8585V20.2949H9.55555V6.33398H10.6505V5.76172H8.97313V20.8585H10.6505Z" fill="var(--bg)" />
     </svg>
   );
 }

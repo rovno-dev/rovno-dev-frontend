@@ -1,79 +1,102 @@
+import { ROUTES } from "@/utils/constants/routes";
+import { DprofileLogotypeMonoIcon, PinterestLogotypeMonoIcon, TelegramLogotypeMonoIcon, VKLogotypeMonoIcon } from "../icons";
+import { Button } from "../ui/button";
 import { Container } from "../ui/container";
 import RovnoLogotype from "./rovno-dev-logotype/rovno-dev-logotype";
+import RovnoLogotypeWordmark from "./rovno-dev-logotype/rovno-dev-logotype-wordmark";
+import { NavLink } from "./nav-link";
 
 export default function Footer() {
   const footerSections = [
     {
-      title: <RovnoLogotype className="h-[1.2rem] w-auto" />,
-      links: ["Кейсы", "Агентство", "Журнал Ровня", "Вакансии", "Вершины"]
+      id: 'main',
+      title: (
+        <div>
+          <RovnoLogotypeWordmark className="h-[30px]! sm:h-[36px]! mb-4" />
+          <SocialMediaIcons className="block lg:hidden!" />
+        </div>
+      ),
+      links: [
+        ROUTES.projects,
+        ROUTES.about,
+        ROUTES.journal,
+        ROUTES.job,
+      ],
     },
     {
+      id: 'journal',
       title: "Журнал Ровня",
-      links: ["Статьи", "Стать редактором", "Предложить статью"]
+      links: [
+        {
+          title: 'Стать редактором',
+          href: '/rovnya/become-editor',
+        },
+        {
+          title: 'Предложить статью',
+          href: '/rovnya/dirrect-message',
+        },
+      ]
     },
     {
       title: "Студентам",
-      links: ["Пройти стажировку", "Повышение квалификации"]
+      links: [
+        {
+          title: 'Пройти стажировку',
+          href: '/job/internship',
+        },
+        {
+          title: 'Повышение квалификации',
+          href: '/job/up-cvalification',
+        },
+      ],
     }
   ];
 
-  const socialIcons = [
-    { id: 'tg', icon: (<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://w3.org"><path d="M16.8 0C7.5264 0 0 7.5264 0 16.8C0 26.0736 7.5264 33.6 16.8 33.6C26.0736 33.6 33.6 26.0736 33.6 16.8C33.6 7.5264 26.0736 0 16.8 0ZM24.5952 11.424C24.3432 14.0784 23.2512 20.5296 22.6968 23.5032C22.4616 24.7632 21.9912 25.1832 21.5544 25.2336C20.58 25.3176 19.8408 24.5952 18.9 23.9736C17.4216 22.9992 16.5816 22.3944 15.1536 21.4536C13.4904 20.3616 14.5656 19.7568 15.5232 18.7824C15.7752 18.5304 20.076 14.616 20.16 14.2632C20.1717 14.2098 20.1701 14.1543 20.1555 14.1016C20.1408 14.0489 20.1136 14.0006 20.076 13.9608C19.9752 13.8768 19.8408 13.9104 19.7232 13.9272C19.572 13.9608 17.22 15.5232 12.6336 18.6144C11.9616 19.068 11.3568 19.3032 10.8192 19.2864C10.2144 19.2696 9.072 18.9504 8.2152 18.6648C7.1568 18.3288 6.3336 18.144 6.4008 17.556C6.4344 17.2536 6.8544 16.9512 7.644 16.632C12.5496 14.4984 15.8088 13.0872 17.4384 12.4152C22.1088 10.4664 23.0664 10.1304 23.7048 10.1304C23.8392 10.1304 24.1584 10.164 24.36 10.332C24.528 10.4664 24.5784 10.6512 24.5952 10.7856C24.5784 10.8864 24.612 11.1888 24.5952 11.424Z" fill="white" /></svg>) },
-    { id: 'vk', icon: (<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://w3.org"><path fillRule="evenodd" clipRule="evenodd" d="M2.36189 2.36189C0 4.72379 0 8.52519 0 16.128V17.472C0 25.0748 0 28.8762 2.36189 31.2381C4.72379 33.6 8.52519 33.6 16.128 33.6H17.472C25.0748 33.6 28.8762 33.6 31.2381 31.2381C33.6 28.8762 33.6 25.0748 33.6 17.472V16.128C33.6 8.52519 33.6 4.72379 31.2381 2.36189C28.8762 0 25.0748 0 17.472 0H16.128C8.52519 0 4.72379 0 2.36189 2.36189ZM5.67007 10.2201C5.85204 18.9561 10.22 24.206 17.878 24.206H18.3121V19.208C21.1261 19.488 23.254 21.5461 24.1079 24.206H28.0841C26.9921 20.2301 24.1219 18.032 22.3299 17.192C24.1219 16.1561 26.6419 13.6361 27.2439 10.2201H23.6318C22.8478 12.9921 20.5241 15.512 18.3121 15.75V10.2201H14.7V19.908C12.46 19.3481 9.63204 16.6321 9.50604 10.2201H5.67007Z" fill="white" /></svg>) },
-    { id: 'dp', icon: (<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://w3.org"><path d="M16.8 0C26.0783 2.15929e-05 33.6 7.52165 33.6 16.8C33.6 26.0783 26.0783 33.6 16.8 33.6C7.52165 33.6 2.15944e-05 26.0783 0 16.8C0 7.52163 7.52163 0 16.8 0ZM21.5961 7.26619C18.9468 4.61691 14.6512 4.6159 12.0019 7.26517L7.26517 12.0029C4.61591 14.6522 4.61591 18.9478 7.26517 21.5971L12.0019 26.3338C14.6512 28.9831 18.9468 28.9831 21.5961 26.3338L26.3328 21.5971C28.982 18.9478 28.982 14.6522 26.3328 12.0029L21.5961 7.26619ZM19.5596 8.44654C22.6477 8.44654 25.1512 10.9503 25.1514 14.0384V19.5606C25.1514 22.6489 22.6478 25.1524 19.5596 25.1524H14.0384C10.9502 25.1524 8.4467 22.6487 8.44654 19.5606V14.0384C8.44654 10.9507 10.9501 8.44654 14.0384 8.44654H19.5596Z" fill="white" /></svg>) },
-    { id: 'pt', icon: (<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://w3.org"><path d="M16.7931 0C7.50506 0 0 7.51887 0 16.7931C0 23.9111 4.42287 29.9926 10.6702 32.439C10.5181 31.1121 10.3938 29.0666 10.7255 27.6153C11.0295 26.3022 12.6881 19.2671 12.6881 19.2671C12.6881 19.2671 12.1905 18.2582 12.1905 16.7793C12.1905 14.4434 13.545 12.7019 15.2312 12.7019C16.6687 12.7019 17.3598 13.78 17.3598 15.0654C17.3598 16.5028 16.4475 18.659 15.9638 20.6631C15.563 22.3355 16.8069 23.7038 18.4517 23.7038C21.4371 23.7038 23.7315 20.5525 23.7315 16.0191C23.7315 11.997 20.8428 9.19128 16.7102 9.19128C11.9279 9.19128 9.12216 12.771 9.12216 16.4752C9.12216 17.9126 9.67502 19.4606 10.3661 20.3037C10.5043 20.4696 10.5181 20.6216 10.4767 20.7875C10.3523 21.3127 10.062 22.4599 10.0068 22.6948C9.93764 22.9989 9.75794 23.068 9.44005 22.916C7.36683 21.9208 6.06762 18.8525 6.06762 16.3923C6.06762 11.0987 9.90998 6.23347 17.1663 6.23347C22.9851 6.23347 27.5186 10.3799 27.5186 15.9361C27.5186 21.7273 23.8697 26.3852 18.811 26.3852C17.111 26.3852 15.5077 25.5006 14.9687 24.4502C14.9687 24.4502 14.1255 27.6568 13.9182 28.4446C13.545 29.9097 12.5222 31.7341 11.8312 32.8536C13.4068 33.3374 15.0654 33.6 16.8069 33.6C26.0811 33.6 33.6 26.0811 33.6 16.8069C33.5862 7.51887 26.0673 0 16.7931 0Z" fill="white" /></svg>) }
-  ];
-
   return (
-    <footer className="bg-[#0A0A0A] py-10 md:py-20 border-t border-white/5 pb-32 md:pb-20">
-      <Container>
-        <div className="mx-auto flex flex-col md:grid md:grid-cols-4 gap-10">
-          <div className="flex md:hidden flex-col gap-6">
-            <RovnoLogotype className="h-[1.2rem] w-auto self-start" />
-            <div className="space-y-4">
-              <h3 className="text-white font-medium text-[15px]">Мы в соц. сетях</h3>
-              <div className="flex gap-3">
-                {socialIcons.map((item) => (
-                  <div key={item.id} className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center scale-75 origin-left">
-                    {item.icon}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
+    <footer className="bg-card pb-[100px] pt-[30px] sm:pt-[50px] border-t border-t-outline">
+      <Container className="sm:flex sm:gap-8">
+        <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 mt-4">
           {footerSections.map((section, index) => (
-            <div key={index} className="space-y-6">
-              <div className={index === 0 ? "hidden md:block" : "block"}>
-                {typeof section.title === 'string' ? (
-                  <h3 className="text-white font-medium text-[15px]">{section.title}</h3>
-                ) : (
-                  section.title
-                )}
-              </div>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-[#555] hover:text-white text-[13px] md:text-[14px] transition-colors">{link}</a>
+            <div key={index} className="w-full">
+              {section.title && typeof section.title == 'string' ? <h3 className="text-(--on-bg-medium) text-heading-3">{section.title}</h3> : section.title}
+              <ul className="flex flex-col gap-2 mt-2.5">
+                {section.links.map((link, key) => (
+                  <li key={key}>
+                    <NavLink className="text-body-3 text-(--on-bg-low)" href={link.href}>{link.title}</NavLink>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
-
-          <div className="hidden md:flex flex-col space-y-6 text-right">
-            <h3 className="text-white font-medium text-[15px]">Мы в соц. сетях</h3>
-            <div className="flex gap-3 justify-end">
-              {socialIcons.map((item) => (
-                <div key={item.id} className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#4A77FF] transition-all cursor-pointer overflow-hidden">
-                  <div className="scale-[0.6]">{item.icon}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
+        <SocialMediaIcons className="hidden lg:block" />
       </Container>
     </footer>
   );
+}
+
+interface SocialMediaIconsProps {
+  className?: string,
+}
+
+function SocialMediaIcons({ className }: SocialMediaIconsProps) {
+  const socialIcons = [
+    { icon: <TelegramLogotypeMonoIcon /> },
+    { icon: <VKLogotypeMonoIcon /> },
+    { icon: <DprofileLogotypeMonoIcon /> },
+    { icon: <PinterestLogotypeMonoIcon /> },
+  ];
+
+  return (
+    <div className={`${className} block`}>
+      <h3 className="text-heading-3 text-(--on-bg-medium) sm:text-heading-2">Мы в соц. сетях</h3>
+      <div className="flex gap-1 mt-2">
+        {socialIcons.map((item, key) => (
+          <Button variant={'text'} key={key} size={'icon-large'}>
+            {item.icon}
+          </Button>
+        ))}
+      </div>
+    </div>
+  )
 }

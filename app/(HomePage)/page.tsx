@@ -1,5 +1,5 @@
-import ServicesSection from "./ServicesSection";
-import SocialsSection from "./SocialsSection";
+import ServicesSection from "./services-section";
+import SocialsSection from "./socials-section";
 
 export default function Home() {
   return (

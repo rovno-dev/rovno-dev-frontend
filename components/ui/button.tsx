@@ -10,7 +10,7 @@ export const buttonUnidekaVariants = {
   "tonal-card": "bg-card text-card-foreground border border-border/50 hover:bg-[var(--state-hover)] cursor-pointer active:scale-[0.98]",
   "tonal-primary": "bg-[var(--primary-card)] text-primary hover:bg-[var(--state-hover)] cursor-pointer active:scale-[0.98]",
   text: "bg-transparent text-foreground hover:bg-[var(--state-hover)] cursor-pointer active:scale-[0.98]",
-  glass: "bg-[var(--primary-glass)] backdrop-blur-custom border border-[var(--primary-glass)] text-primary [&_svg]:fill-primary hover:bg-[var(--state-hover)] cursor-pointer active:scale-[0.98]",
+  glass: "bg-[var(--primary-glass)] backdrop-blur-glass border border-[var(--outline-primary-glass)] text-primary [&_svg]:fill-primary hover:bg-[var(--state-hover)] cursor-pointer active:scale-[0.98]",
   selected: "bg-[var(--primary-card)] text-primary border border-primary cursor-pointer",
 };
 
@@ -20,24 +20,29 @@ export const chipSizes = {
   "chip-large": "h-[38px] px-4 [&_svg]:size-6",
 }
 
+export const iconButtonSizes = {
+  "icon-small": "h-[48px] aspect-square [&_svg]:size-[24px]",
+  "icon-medium": "h-[54px] aspect-square [&_svg]:size-[30px]",
+  "icon-large": "h-[60px] aspect-square [&_svg]:size-[36px]",
+}
+
+export const buttonSizes = {
+  small: "h-[36px] px-4 text-xs gap-1 [&_svg]:size-3.5",
+  medium: "h-[42px] px-6 text-sm gap-1.5 [&_svg]:size-4",
+  large: "h-[54px] px-6 text-base gap-2 [&_svg]:size-5",
+}
+
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: buttonUnidekaVariants,
       size: {
-        small: "h-[36px] px-4 text-xs gap-1 [&_svg]:size-3.5",
-        medium: "h-[42px] px-6 text-sm gap-1.5 [&_svg]:size-4",
-        large: "h-[54px] px-6 text-base gap-2 [&_svg]:size-5",
+        ...buttonSizes,
 
-        "icon-small": "h-[48px] aspect-square [&_svg]:size-4",
-        "icon-medium": "h-[54px] aspect-square [&_svg]:size-5",
-        "icon-large": "h-[60px] aspect-square [&_svg]:size-6",
+        ...iconButtonSizes,
 
         ...chipSizes,
-
-        default: "h-8 gap-1.5 px-2.5",
-        icon: "size-8",
       },
       shape: {
         square: "rounded-md",
@@ -45,7 +50,7 @@ const buttonVariants = cva(
       }
     },
     defaultVariants: {
-      variant: "glass",
+      variant: "filled",
       size: "medium",
       shape: "square",
     },

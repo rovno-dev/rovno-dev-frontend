@@ -6,15 +6,17 @@ import localFont from 'next/font/local'
 import { ThemeProvider } from "@/providers/theme-provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import BottomAppBar from "@/components/layout/bottom-app-bar";
 
 export const NotoSans = localFont({
   src: '../public/fonts/NotoSans.woff2',
   variable: '--font-sans',
-})
+});
+
 export const Oswald = localFont({
   src: '../public/fonts/Oswald.woff2',
   variable: '--font-heading',
-})
+});
 
 export const metadata: Metadata = {
   title: "Цифровое агентство полного цикла Rovno.dev",
@@ -53,10 +55,11 @@ export default function RootLayout({
         <ThemeProvider>
           <TooltipProvider>
             <Header />
-            <main className="mt-[46px] md:mt-[70px]">
+            <main className="mt-[46px] md:mt-[70px] mb-[100px]">
               {children}
             </main>
             <Footer />
+            <BottomAppBar />
           </TooltipProvider>
         </ThemeProvider>
       </body>

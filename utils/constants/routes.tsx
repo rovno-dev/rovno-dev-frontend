@@ -1,44 +1,35 @@
+import { ReactNode } from "react";
+
+export interface RouteLinkProps {
+  id?: string,
+  href: string,
+  title?: string | ReactNode,
+}
+
 export const ROUTES = {
   home: {
+    id: 'home',
     href: "/",
-    title: {
-      default: 'Главная',
-    },
-    icon: {
-      standard: {
-        default: HomeOutlinedIcon,
-        selected: HomeIcon,
-      },
-    }
+    title: 'Главная',
   },
-  cases: {
-    href: "/portfolio",
-    title: {
-      default: 'Портфолио',
-    },
-    icon: {
-      standard: {
-        default: SourceOutlinedIcon,
-        active: SourceIcon,
-      },
-    }
+  projects: {
+    id: 'projects',
+    href: "/projects",
+    title: 'Проекты'
   },
   about: {
-    href: "/o-nas",
-    title: {
-      default: 'О нас',
-    },
-    icon: {
-      standard: {
-        default: DomainOutlinedIcon,
-        active: DomainIcon,
-      },
-    }
+    id: 'about',
+    href: "/about",
+    title: 'Агентство',
   },
-  personalDataAgreement: {
-    href: "/pd-soglasheniye",
-    title: {
-      default: "Соглашение на обработку ПД",
-    },
+  journal: {
+    id: 'journal',
+    href: "/rovnya",
+    title: "Журнал Ровня",
+  },
+  job: {
+    id: 'job',
+    href: "/job",
+    title: "Вакансии",
   },
 }

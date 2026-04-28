@@ -15,10 +15,10 @@ export const Icon = React.forwardRef<SVGSVGElement, IconProps>(
         height={size}
         viewBox="0 0 50 50"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        // stroke="currentColor"
+        // strokeWidth="2"
+        // strokeLinecap="round"
+        // strokeLinejoin="round"
         className={cn("shrink-0", className)}
         {...props}
       >

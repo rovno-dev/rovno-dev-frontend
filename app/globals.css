@@ -58,21 +58,19 @@
   --state-focus: color-mix(in srgb, #121212, transparent 77%);
 
   /* Universal for light and dark themes */
-  --g-light: linear-gradient(to right,
+  --g-light: linear-gradient(to top,
       var(--white) 0%,
-      color-mix(in srgb, var(--white), transparent 100%) 0%);
+      color-mix(in srgb, var(--white), transparent 100%) 100%);
   --on-g-light: var(--gray-9);
-  --g-dark: linear-gradient(to right,
+  --g-dark: linear-gradient(to top,
       var(--dark-4) 0%,
-      color-mix(in srgb, var(--dark-4), transparent 100%) 0%);
+      color-mix(in srgb, var(--dark-4), transparent 100%) 100%);
   --on-g-dark: var(--white);
 }
 
 @theme inline {
   --font-heading: var(--font-heading);
   --font-sans: var(--font-sans);
-
-  --color-background: var(--bg);
 
   --color-sidebar-ring: var(--yellow-10);
   --color-sidebar-border: var(--outline);
