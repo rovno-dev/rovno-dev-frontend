@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
+import { chipSizes } from "./button";
 
 export const badgeUnidekaVariants = {
   "filled-static": "bg-[var(--primary)] text-[var(--on-primary)]",
@@ -32,6 +33,9 @@ const badgeVariants = cva(
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
       },
+      size: {
+        ...chipSizes,
+      },
     },
     defaultVariants: {
       variant: "default",
@@ -43,6 +47,7 @@ function Badge({
   className,
   variant = "default",
   asChild = false,
+  size = "chip-medium",
   ...props
 }: React.ComponentProps<"span"> &
   VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
@@ -52,7 +57,7 @@ function Badge({
     <Comp
       data-slot="badge"
       data-variant={variant}
-      className={cn(badgeVariants({ variant }), className)}
+      className={cn(badgeVariants({ size, variant }), className)}
       {...props}
     />
   )

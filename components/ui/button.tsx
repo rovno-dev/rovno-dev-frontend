@@ -14,23 +14,27 @@ export const buttonUnidekaVariants = {
   selected: "bg-[var(--primary-card)] text-primary border border-primary cursor-pointer",
 };
 
+export const chipSizes = {
+  "chip-small": "h-[26px] px-2 [&_svg]:size-4",
+  "chip-medium": "h-[32px] px-3  [&_svg]:size-5",
+  "chip-large": "h-[38px] px-4 [&_svg]:size-6",
+}
+
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: buttonUnidekaVariants,
       size: {
-        small: "h-7 px-3 text-xs gap-1 [&_svg]:size-3.5",
-        medium: "h-9 px-4 text-sm gap-1.5 [&_svg]:size-4",
-        large: "h-11 px-6 text-base gap-2 [&_svg]:size-5",
+        small: "h-[36px] px-4 text-xs gap-1 [&_svg]:size-3.5",
+        medium: "h-[42px] px-6 text-sm gap-1.5 [&_svg]:size-4",
+        large: "h-[54px] px-6 text-base gap-2 [&_svg]:size-5",
 
-        "icon-small": "h-8 w-8 [&_svg]:size-4",
-        "icon-medium": "h-10 w-10 [&_svg]:size-5",
-        "icon-large": "h-12 w-12 [&_svg]:size-6",
+        "icon-small": "h-[48px] aspect-square [&_svg]:size-4",
+        "icon-medium": "h-[54px] aspect-square [&_svg]:size-5",
+        "icon-large": "h-[60px] aspect-square [&_svg]:size-6",
 
-        "chip-small": "h-8 w-8 [&_svg]:size-4",
-        "chip-medium": "h-10 w-10 [&_svg]:size-5",
-        "chip-large": "h-12 w-12 [&_svg]:size-6",
+        ...chipSizes,
 
         default: "h-8 gap-1.5 px-2.5",
         icon: "size-8",

@@ -26,9 +26,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0A0A0A] py-10 md:py-20 border-t border-white/5 pb-32 md:pb-20">
-      <Container variant="full-width">
-        <div style={{ maxWidth: '1200px' }} className="mx-auto flex flex-col md:grid md:grid-cols-4 gap-10">
-
+      <Container>
+        <div className="mx-auto flex flex-col md:grid md:grid-cols-4 gap-10">
           <div className="flex md:hidden flex-col gap-6">
             <RovnoLogotype className="h-[1.2rem] w-auto self-start" />
             <div className="space-y-4">

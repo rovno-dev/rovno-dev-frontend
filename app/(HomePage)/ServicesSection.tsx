@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { StyledText } from "@/components/ui/styled-text";
 
 export default function ServicesSection() {
   const tags = [
@@ -45,9 +44,9 @@ export default function ServicesSection() {
   return (
     <Container className="items-center grid grid-cols-1 md:grid-cols-[500px_1fr] gap-[40px] py-16 sm:h-[450px]">
       <div>
-        <StyledText as={'h2'} variant="display-2">
+        <h2 className="text-display-2">
           Дизайн любого уровня <br /> сложности
-        </StyledText>
+        </h2>
 
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag, key) => (
