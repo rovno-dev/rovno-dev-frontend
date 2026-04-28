@@ -15,16 +15,16 @@ export default function Header() {
       <Container
         className="flex justify-center md:justify-between"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
-          <Link href={'/'} style={{ display: 'flex' }}>
-            <RovnoLogotype className="h-[1.3rem] md:h-[1.8rem]" />
+        <div className="flex items-center gap-8">
+          <Link href={'/'}>
+            <RovnoLogotype className="!h-10" />
           </Link>
 
-          <nav className="hidden md:flex gap-6 text-sm">
-            <NavLink href="/projects" className="hover:text-white transition">Проекты</NavLink>
-            <NavLink href="/about" className="hover:text-white transition">О нас</NavLink>
-            <NavLink href="/jobs" className="hover:text-white transition">Вакансии</NavLink>
-            <NavLink href="/journal" className="hover:text-white transition">{'Журнал "Ровня"'}</NavLink>
+          <nav className="hidden md:flex gap-4 text-sm">
+            <NavLink href="/projects">Проекты</NavLink>
+            <NavLink href="/about">О нас</NavLink>
+            <NavLink href="/jobs">Вакансии</NavLink>
+            <NavLink href="/journal">{'Журнал "Ровня"'}</NavLink>
           </nav>
         </div>
 
