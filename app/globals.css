@@ -1,7 +1,9 @@
 @import url('./unideka-base.css');
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
+/* @import "shadcn/tailwind.css"; */
+
+@plugin "../tailwind.config.js";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -66,6 +68,102 @@
       var(--dark-4) 0%,
       color-mix(in srgb, var(--dark-4), transparent 100%) 100%);
   --on-g-dark: var(--white);
+
+  --font-sans: "Noto Sans", sans-serif;
+  --font-heading: "Oswald", sans-serif;
+
+  --lh-heading: 1.2;
+  --lh-body: 1.5;
+
+  --display-1-size: 3rem;
+  --display-1-weight: 600;
+  --display-1-font-face: var(--font-heading);
+  --display-1-lh: var(--lh-heading);
+
+  --display-2-size: 2.25rem;
+  --display-2-weight: 600;
+  --display-2-font-face: var(--font-heading);
+  --display-2-lh: var(--lh-heading);
+
+  --display-3-size: 2rem;
+  --display-3-weight: 600;
+  --display-3-font-face: var(--font-heading);
+  --display-3-lh: var(--lh-heading);
+
+  --display-4-size: 1.5rem;
+  --display-4-weight: 600;
+  --display-4-font-face: var(--font-heading);
+  --display-4-lh: var(--lh-heading);
+
+  --display-5-size: 1.25rem;
+  --display-5-weight: 600;
+  --display-5-font-face: var(--font-heading);
+  --display-5-lh: var(--lh-heading);
+
+  --display-6-size: 1.125rem;
+  --display-6-weight: 600;
+  --display-6-font-face: var(--font-heading);
+  --display-6-lh: var(--lh-heading);
+
+  --heading-1-size: 1.875rem;
+  --heading-1-weight: 500;
+  --heading-1-font-face: var(--font-sans);
+  --heading-1-lh: var(--lh-heading);
+
+  --heading-2-size: 1.5rem;
+  --heading-2-weight: 500;
+  --heading-2-font-face: var(--font-sans);
+  --heading-2-lh: var(--lh-heading);
+
+  --heading-3-size: 1.25rem;
+  --heading-3-weight: 500;
+  --heading-3-font-face: var(--font-sans);
+  --heading-3-lh: var(--lh-heading);
+
+  --heading-4-size: 1.125rem;
+  --heading-4-weight: 500;
+  --heading-4-font-face: var(--font-sans);
+  --heading-4-lh: var(--lh-heading);
+
+  --heading-5-size: 1rem;
+  --heading-5-weight: 500;
+  --heading-5-font-face: var(--font-sans);
+  --heading-5-lh: var(--lh-heading);
+
+  --heading-6-size: 0.875rem;
+  --heading-6-weight: 500;
+  --heading-6-font-face: var(--font-sans);
+  --heading-6-lh: var(--lh-heading);
+
+  --body-1-size: 1.25rem;
+  --body-1-weight: 400;
+  --body-1-font-face: var(--font-sans);
+  --body-1-lh: var(--lh-body);
+
+  --body-2-size: 1.125rem;
+  --body-2-weight: 400;
+  --body-2-font-face: var(--font-sans);
+  --body-2-lh: var(--lh-body);
+
+  --body-3-size: 1rem;
+  --body-3-weight: 400;
+  --body-3-font-face: var(--font-sans);
+  --body-3-lh: var(--lh-body);
+
+  --body-4-size: 0.875rem;
+  --body-4-weight: 400;
+  --body-4-font-face: var(--font-sans);
+  --body-4-lh: var(--lh-body);
+
+  --body-5-size: 0.75rem;
+  --body-5-weight: 400;
+  --body-5-font-face: var(--font-sans);
+  --body-5-lh: var(--lh-body);
+
+  --body-6-size: 0.625rem;
+  --body-6-weight: 400;
+  --body-6-font-face: var(--font-sans);
+  --body-6-lh: var(--lh-body);
 }
 
 @theme inline {
@@ -207,6 +305,7 @@
   }
 }
 
+/* 
 @layer utilities {
   .text-display-1 {
     font-family: var(--display-1-font-face);
@@ -333,4 +432,4 @@
     font-weight: var(--body-6-weight);
     line-height: var(--body-6-lh);
   }
-}
+} */

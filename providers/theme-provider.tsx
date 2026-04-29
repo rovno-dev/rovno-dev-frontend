@@ -25,7 +25,6 @@ export function ThemeProvider({ children, defaultTheme = "system" }: { children:
   useEffect(() => {
     const root = window.document.documentElement
 
-    // Функция применения темы
     const applyTheme = (currentTheme: Theme) => {
       root.classList.remove("light", "dark")
 

@@ -2,9 +2,9 @@ import { ROUTES } from "@/utils/constants/routes";
 import { DprofileLogotypeMonoIcon, PinterestLogotypeMonoIcon, TelegramLogotypeMonoIcon, VKLogotypeMonoIcon } from "../icons";
 import { Button } from "../ui/button";
 import { Container } from "../ui/container";
-import RovnoLogotype from "./rovno-dev-logotype/rovno-dev-logotype";
 import RovnoLogotypeWordmark from "./rovno-dev-logotype/rovno-dev-logotype-wordmark";
 import { NavLink } from "./nav-link";
+import { ThemeSwitcher } from "./theme-switcher";
 
 export default function Footer() {
   const footerSections = [
@@ -12,7 +12,10 @@ export default function Footer() {
       id: 'main',
       title: (
         <div>
-          <RovnoLogotypeWordmark className="h-[30px]! sm:h-[36px]! mb-4" />
+          <div className="flex mb-3 gap-2 items-center">
+            <ThemeSwitcher />
+            <RovnoLogotypeWordmark className="w-calc(100%-1rem)!" />
+          </div>
           <SocialMediaIcons className="block lg:hidden!" />
         </div>
       ),
@@ -90,7 +93,7 @@ function SocialMediaIcons({ className }: SocialMediaIconsProps) {
   return (
     <div className={`${className} block`}>
       <h3 className="text-heading-3 text-(--on-bg-medium) sm:text-heading-2">Мы в соц. сетях</h3>
-      <div className="flex gap-1 mt-2">
+      <div className="flex gap-1 mt-2 sm:flex-wrap lg:flex-nowrap">
         {socialIcons.map((item, key) => (
           <Button variant={'text'} key={key} size={'icon-large'}>
             {item.icon}
