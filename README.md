@@ -7,6 +7,26 @@ The reference of combining shadcn + Unideka UI + Next.js
 
 ## 🇺🇸 English
 
+### How to start (local dev)
+
+#### 1. Add subdomains to your hosts file
+
+```
+127.0.0.1  fake-api.localhost
+```
+
+#### 2. Install deps
+
+```bash
+npm i
+```
+
+#### 3. Run
+
+```bash
+npm run dev
+```
+
 ### Tech Stack
 - **Framework:** [Next.js 16 Turbopack](https://nextjs.org/)
 - **Engine:** [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui v2](https://ui.shadcn.com/)
@@ -19,7 +39,7 @@ The code is available under the **MIT License**.
 - You are free to use the logic, configuration, and components.
 - **Brand Identity:** The "Rovno.dev" name, logo, and case studies are NOT open-source. Please don't clone the design 1:1 for commercial use—be creative!
 
-## 🇷🇺 Русский
+## 🇷🇺 Russian
 
 ### Особенности реализации
 - **Tailwind v4:** Полностью на CSS-переменных для максимальной скорости сборки.

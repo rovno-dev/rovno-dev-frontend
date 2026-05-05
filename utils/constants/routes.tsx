@@ -32,4 +32,9 @@ export const ROUTES = {
     href: "/job",
     title: "Вакансии",
   },
+  "fake-api": {
+    id: 'fake-api',
+    href: "fake-api.localhost:3000",
+    title: "Фейк АПИ",
+  },
 }
