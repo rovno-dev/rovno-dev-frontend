@@ -4,7 +4,7 @@ import RovnoLogotypeIcon from "./rovno-dev-logotype/rovno-dev-logotype-icon";
 import { ROUTES } from "@/utils/constants/routes";
 import { Container } from "../ui/container";
 import { useState } from "react";
-import MakeOrderModal from "./make-order-modal/make-order-modal";
+// import MakeOrderModal from "./make-order-modal/make-order-modal";
 import { Button } from "../ui/button";
 import { DesignServicesIcon } from "../icons";
 import { DeployedCodeIcon } from "../icons/unideka-icons/deployed-code-icon";
