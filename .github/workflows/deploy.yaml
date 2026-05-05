@@ -15,7 +15,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
           script: |
-            cd /home/niyazgim/projects/rovno-dev/rovno-dev-frontend
+            cd ${{ secrets.PROJECT_PATH }}
             git pull origin main
             make rebuild ENV=prod SERVICES=rovno_dev_next_js_frontend
