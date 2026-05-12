@@ -2,6 +2,7 @@
 
 import BottomAppBar from "@/components/BottomAppBar/BottomAppBar";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer"; 
 import { useEffect, useRef, useState } from "react";
 
 export default function ClientLayout({
@@ -11,6 +12,7 @@ export default function ClientLayout({
 }>) {
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     if (headerRef.current)
       setHeaderHeight(headerRef.current.clientHeight);
@@ -19,9 +21,10 @@ export default function ClientLayout({
   return (
     <div
       style={{
-        minHeight: "100%",
+        minHeight: "100vh",
         display: "flex",
-        flex: "1 1 auto"
+        flexDirection: "column",
+        width: "100%"
       }}
     >
       <header
@@ -36,16 +39,21 @@ export default function ClientLayout({
       >
         <Header />
       </header >
+      
       <main
         style={{
           marginTop: headerHeight,
           width: "100%",
           position: "relative",
           zIndex: 1,
+          flex: "1 0 auto",
         }}
       >
         {children}
       </main>
+
+      <Footer />
+
       <BottomAppBar />
     </div>
   )

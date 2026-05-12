@@ -38,7 +38,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex gap-6 text-sm text-gray-400">
-            <Link href="/projects" className="hover:text-white transition">Проекты</Link>
+            <Link href="/ProjectsPage" className="hover:text-white transition">Проекты</Link>
             <Link href="/about" className="hover:text-white transition">О нас</Link>
             <Link href="/jobs" className="hover:text-white transition">Вакансии</Link>
             <Link href="/journal" className="hover:text-white transition">Журнал "Ровня"</Link>
