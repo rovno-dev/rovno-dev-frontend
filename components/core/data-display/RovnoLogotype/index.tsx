@@ -1,8 +1,8 @@
 import { IconProps } from "@/utils/interfaces";
 
-export default function RovnoLogotype({ width = 254, height = 63, style }: IconProps) {
+export default function RovnoLogotype({ width = 254, height = 63, style, className }: IconProps) {
   return (
-    <svg style={style} width={width} height={height} viewBox="0 0 254 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg style={style} width={width} height={height} className={className} viewBox="0 0 254 63" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M62 0H0V62H62V0Z" fill="white" />
       <path d="M36.1611 49.7383V48.3944H38.7723V15.1029H36.1611V13.7383H40.1611V49.7383H36.1611Z"
         fill="#080808" />

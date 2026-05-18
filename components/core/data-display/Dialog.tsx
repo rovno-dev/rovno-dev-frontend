@@ -1,11 +1,15 @@
+"use client"
+
 import { Text } from "@/components/core/data-display/typography/Text";
 import { colorStyles } from '@/utils/styles/colors';
 import CloseIcon from '@mui/icons-material/Close';
 import Dialog, { DialogProps } from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
-import { Heading } from "./typography/Heading";
+import { CSSProperties, Dispatch, MouseEventHandler, ReactNode, SetStateAction } from 'react';
+import { Heading, HeadingProps } from "./typography/Heading";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export interface RDDialogProps extends DialogProps {
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -17,7 +21,7 @@ function RDDialog({ size = 'md', sx, setOpen, onClose, open, title, children, ..
     <Dialog
       sx={{
         "& .MuiDialog-paper": {
-          borderRadius: "1rem",
+          borderRadius: "1.25rem",
         },
         '& .MuiPaper-root': {
           background: colorStyles.dark.background.globe.default,
@@ -41,9 +45,9 @@ function RDDialog({ size = 'md', sx, setOpen, onClose, open, title, children, ..
         sx={{
           position: 'absolute',
           zIndex: 1000,
-          right: "1rem",
-          top: "1rem",
-          color: colorStyles.dark.text.primary.default,
+          right: "0.25rem",
+          top: "0.25rem",
+          color: colorStyles.dark.text.muted.default,
         }}
       >
         <CloseIcon />
@@ -53,17 +57,25 @@ function RDDialog({ size = 'md', sx, setOpen, onClose, open, title, children, ..
   );
 }
 
-export interface RDDialogTitleProps {
-  title: string;
+export interface RDDialogTitleProps extends HeadingProps {
+  children?: ReactNode;
 }
 
-function RDDialogTitle({ title }: RDDialogTitleProps) {
+const RDDialogTitle = ({ children, style, className }: RDDialogTitleProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <DialogTitle component={'div'} sx={{ m: 0, p: 0, mb: '1.25rem' }} id={title}>
-      <Heading variant="h2" order="h2">
-        {title}
+    <DialogTitle component={'div'} sx={{ m: 0, p: 0, mb: '1.25rem' }} className={className}>
+      <Heading
+        variant={isMobile ? 'h3' : 'h2'}
+        order="h2"
+        style={style}
+      >
+        {children}
       </Heading>
     </DialogTitle>
+
   )
 }
 
